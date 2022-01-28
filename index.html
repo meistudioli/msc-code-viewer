@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Web Component: &lt;msc-code-viewer /&gt; - web components based syntax highlighting</title>
+<meta name="description" content="As a web developer, show some demo code is a very common stuff. There are so many syntax highlighting libraries for the Web. highlight.js is one of the popular library. It is easy to use and there are so many themes for it. To make it more suitable for me, I wrap highlight.js and GitHub light / dark themes as a web component and named it <msc-code-viewer />. With <msc-code-viewer /> syntax highlighting is a piece of cake. It will switch light / dark mode as user preference. Of course「COPY」feature has already built-in." />
+<script type="module" src="mjs/wc-msc-code-viewer.js"></script>
+<style>
+/* reset */
+div,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,legend,input,textarea,p,article,aside,figcaption,figure,nav,section,mark,audio,video,main{margin:0;padding:0}
+article,aside,figcaption,figure,nav,section,main{display:block}
+fieldset,img{border:0}
+address,caption,cite,em,strong{font-style:normal;font-weight:400}
+ol,ul{list-style:none}
+caption{text-align:left}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}
+abbr{border:0;font-variant:normal}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}
+body{-webkit-text-size-adjust:none}
+select,input,button,textarea{font:100% arial,helvetica,clean,sans-serif;}
+del{font-style:normal;text-decoration:none}
+pre{font-family:monospace;line-height:100%}
+progress{-webkit-appearance:none;appearance:none;overflow:hidden;border:0 none;}
+
+/* page */
+html,body{font-family:system-ui,sans-serif;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;font-size:16px;}
+#hd,#ft{display:none;}
+
+body{position:relative;inline-size:100vw;block-size:100vh;}
+
+.demo{position:absolute;inset-inline-start:50%;inset-block-start:50%;inline-size:calc(100% - 24px);block-size:auto;max-inline-size:600px;border-radius:.5em;padding:2em;box-sizing:border-box;border-radius:1em;transform:translate(-50%,-50%);}
+
+/* msc-code-viewer */
+msc-code-viewer:not(:defined){visibility:hidden;}
+</style>
+</head>
+
+<body>
+
+<div class="demo">
+    <msc-code-viewer>
+&lt;!DOCTYPE html>
+&lt;title>Title&lt;/title>
+
+&lt;style>body {width: 500px;}&lt;/style>
+
+&lt;script type="application/javascript">
+  function $init() {return true;}
+&lt;/script>
+
+&lt;body>
+  &lt;p checked class="title" id='title'>Title&lt;/p>
+  &lt;!-- here goes the rest of the page -->
+&lt;/body>
+    </msc-code-viewer>
+</div>
+
+<script>
+customElements.whenDefined('msc-code-viewer').then(() => {
+  const codeViewer = document.querySelector('msc-code-viewer');
+
+  codeViewer.addEventListener('msc-code-viewer-mutate',
+    (evt) => {
+      console.log(evt);
+    }
+  );
+});
+</script>
+
+</body>
+
+</html>
