@@ -1,6 +1,6 @@
 # msc-code-viewer
 
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/msc-web-push) [![DeepScan grade](https://deepscan.io/api/teams/16372/projects/20025/branches/532018/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=16372&pid=20025&bid=532018)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/msc-web-push)
 
 As a web developer, show some demo code is a very common stuff. There are so many syntax highlighting libraries for the Web. highlight.js is one of the popular library. It is easy to use and there are so many themes for it. To make it more suitable for me, I wrap highlight.js and GitHub light / dark themes as a web component and named it &lt;msc-code-viewer />. With &lt;msc-code-viewer /> syntax highlighting is a piece of cake. It will switch light / dark mode as user preference. Of course「COPY」feature has already built-in.
 

@@ -1,6 +1,6 @@
 {
   "name": "msc-code-viewer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "As a web developer, show some demo code is a very common stuff. There are so many syntax highlighting libraries for the Web. highlight.js is one of the popular library. It is easy to use and there are so many themes for it. To make it more suitable for me, I wrap highlight.js and GitHub light / dark themes as a web component and named it <msc-code-viewer />. With <msc-code-viewer /> syntax highlighting is a piece of cake. It will switch light / dark mode as user preference. Of course「COPY」feature has already built-in.",
   "main": "index.html",
   "scripts": {
