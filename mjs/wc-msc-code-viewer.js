@@ -281,7 +281,7 @@ export class MscCodeViewer extends HTMLElement {
 
     // evt
     this._onClick = this._onClick.bind(this);
-    this._onTouch = this._onClick.bind(this);
+    this._onTouch = this._onTouch.bind(this);
   }
 
   async connectedCallback() {
