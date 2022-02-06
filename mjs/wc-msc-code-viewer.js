@@ -281,6 +281,7 @@ export class MscCodeViewer extends HTMLElement {
 
     // evt
     this._onClick = this._onClick.bind(this);
+    this._onTouch = this._onClick.bind(this);
   }
 
   async connectedCallback() {
@@ -321,7 +322,14 @@ export class MscCodeViewer extends HTMLElement {
     this.#data.controller = new AbortController();
     const signal = this.#data.controller.signal;
     this.#nodes.copy.addEventListener('click', this._onClick, { signal });
-
+    if (_wcl.isEventSupport('touchstart')) {
+      /*
+       * CSS :active can only active when event: touchstart add
+       * https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html
+       */
+      this.#nodes.copy.addEventListener('touchstart', this._onTouch, { signal });
+    }
+    
     this._mutate();
   }
 
@@ -398,6 +406,10 @@ export class MscCodeViewer extends HTMLElement {
     } catch (err) {
       console.error('Failed to copy: ', err);
     }
+  }
+
+  _onTouch() {
+    // do nothing
   }
 
   _mutate() {
