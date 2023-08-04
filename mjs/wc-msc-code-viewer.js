@@ -4,7 +4,8 @@ import hljs from './highlight.js';
 
 const defaults = {};
 const custumEvents = {
-  mutate: 'msc-code-viewer-mutate'
+  mutate: 'msc-code-viewer-mutate',
+  copy: 'msc-code-viewer-copy'
 };
 
 const template = document.createElement('template');
@@ -404,6 +405,9 @@ export class MscCodeViewer extends HTMLElement {
 
     try {
       await navigator.clipboard.writeText(this.value);
+      this._fireEvent(custumEvents.copy, {
+        value: this.value
+      });
     } catch (err) {
       console.error('Failed to copy: ', err);
     }

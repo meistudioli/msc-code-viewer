@@ -21,10 +21,30 @@ a{cursor:pointer;text-decoration:none;}
 .aspect-ratio{position:relative;width:100%;--w:4;--h:3;}
 .aspect-ratio:before{content:'';width:100%;padding-top:calc(var(--h) * 100% / var(--w));display:block;}
 .aspect-ratio .content{position:absolute;top:0;left:0;right:0;bottom:0;}
+.text-overflow{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .line-clampin{display:-webkit-box;-webkit-line-clamp:var(--line-clamp, 2);-webkit-box-orient:vertical;text-overflow:ellipsis;overflow:hidden;}
 .overscrolling{-webkit-overflow-scrolling:touch;overflow:hidden;overflow-y:scroll;overscroll-behavior:contain;}
 .overscrolling-x{-webkit-overflow-scrolling:touch;overflow:hidden;overflow-x:scroll;overscroll-behavior:contain;}
 .absolute-center{position:absolute;top:0;left:0;bottom:0;right:0;margin:auto;}
+.flex-center{display:flex;justify-content:center;align-items:center;}
+.force-radius{overflow:hidden;transform:translate3d(0, 0, 0);border-radius:var(--r, 8px);}
 
 :host{all:initial;font-family:system-ui,sans-serif;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;font-size:16px;-webkit-tap-highlight-color:transparent;}
+:host {
+  /**
+   * safe area variables for iX design
+   */
+  --safe-area-left: 0px;
+  --safe-area-right: 0px;
+  --safe-area-top: 0px;
+  --safe-area-bottom: 0px;
+}
+@supports (bottom: env(safe-area-inset-top)) {
+  :host {
+    --safe-area-left: env(safe-area-inset-left);
+    --safe-area-right: env(safe-area-inset-right);
+    --safe-area-top: env(safe-area-inset-top);
+    --safe-area-bottom: env(safe-area-inset-bottom);
+  }
+}
 `;

@@ -83,7 +83,8 @@ msc-code-viewer {
 
 | Event Signature | Description |
 | ----------- | ----------- |
-| msc-code-viewer-mutate | Fired when <msc-code-viewer-mutate /> mutated. |
+| msc-code-viewer-mutate | Fired when <msc-code-viewer /> mutated. Developers could get data througn `event.detatil`. |
+| msc-code-viewer-copy | Fired when <msc-code-viewer /> copy button pressed. Developers could get data througn `event.detatil`. |
 
 ## Reference
 - [&lt;msc-code-viewer /&gt;](https://blog.lalacube.com/mei/webComponent_msc-code-viewer.html)
